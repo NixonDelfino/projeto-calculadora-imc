@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+    --mainfont: 'Roboto', sans-serif;
+    
+    --ttheading: #0C3440;
+    
+    --ttlabel: #00453a;
+    
+    --ttinput: #212529;
+    --otinput: #02799D;
+    --bdinput: #4950574d;
+    --bginput: #DCE2E9;
+
+    --ttplaceholder: #49505780;
+    
+    --ttbutton: white;
+    --bgbutton: #02799D;
+    --bgbuttonhover: #01546d;
+    
+    --bgerror: #F03E3E;
+    --tterror: white;
+}
+body{
+    font-family: var(--mainfont);
+    background-color: #040924;
+}
+body, input, button{
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background-color: white;
+    box-shadow: 0 .2rem .4rem #0000001a;
+    padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+    max-width: 42.8rem;
+    border-radius: .6rem;
+}
+h1{
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: var(--ttheading);
+}
+span{
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: var(--ttheading);
+    font-family: var(--mainfont);
+    font-weight: bold;
+}
+form{
+    width: 30rem;
+}
+form h1{
+    margin-bottom: 3.2rem;
+}
+form label{
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--ttlabel);
+    margin-bottom: .8rem;
+}
+form input{
+    width: 100%;
+    border: 1px solid var(--bdinput);
+    background-color: var(--bginput);
+    padding: 1.6rem;
+    border-radius: .4rem;
+}
+form input:focus{
+    outline: 2px solid var(--otinput);
+}
+form input::placeholder{
+    color: var(--ttplaceholder);
+}
+/*input wrapper que tenha um input wrapper anterior*/
+.input-wrapper + .input-wrapper{
+    margin-top: 1.6rem;
+}
+form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.2rem;
+    padding: 1.6rem;
+    width: 100%;
+    border: none;
+    border-radius: .4rem;
+    background-color: var(--bgbutton);
+    color: var(--ttbutton);
+    gap: .8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+form button:hover{
+    background-color: var(--bgbuttonhover);
+}
+
+/*Modal*/
+.modal-wrapper.open{
+    opacity: 1;
+    visibility: visible;
+}
+.modal-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    background-color: #000000b3;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal{
+    position: relative;
+}
+.modal button{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    cursor: pointer;
+    transition: transform .3s;
+}
+.modal button:hover{
+    transform: scale(1.5);
+}
+/*alert error*/
+.alerterror.open{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.alerterror{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--bgerror);
+    text-align: center;
+    color: var(--tterror);
+    padding: .8rem 0;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30px);
+    transition: transform .5s;
+}
